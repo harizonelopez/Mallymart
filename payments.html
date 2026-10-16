@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Choose payment method | Mallymart</title>
+        <style>
+            :root {
+                font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                color: #202842;
+                background: #f6f7fb;
+                --muted: #8490a5;
+                --line: #e9edf3;
+                --purple: #6857e8;
+            }
+
+            * { box-sizing: border-box; }
+
+            body {
+                margin: 0;
+                min-height: 100vh;
+                display: grid;
+                place-items: center;
+                padding: 24px;
+            }
+
+            .checkout {
+                width: min(100%, 520px);
+                background: #fff;
+                border: 1px solid var(--line);
+                border-radius: 16px;
+                box-shadow: 0 16px 50px #29365b12;
+                overflow: hidden;
+            }
+
+            .header {
+                padding: 25px 28px 20px;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 9px;
+                margin-bottom: 25px;
+                font-weight: 750;
+                font-size: 16px;
+            }
+
+            .logo {
+                display: grid;
+                place-items: center;
+                width: 30px;
+                height: 30px;
+                border-radius: 9px;
+                color: white;
+                background: linear-gradient(135deg, #8e7dff, #5543da);
+            }
+
+            h1 { margin: 0 0 7px; font-size: 22px; }
+            .header p, .hint { margin: 0; color: var(--muted); font-size: 13px; }
+
+            .order {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 17px 28px;
+                background: #fafaff;
+                border-bottom: 1px solid var(--line);
+                font-size: 13px;
+            }
+
+            .order span { color: var(--muted); }
+            .order strong { font-size: 16px; }
+
+            form { padding: 23px 28px 28px; }
+            .section-title { margin: 0 0 13px; font-size: 14px; }
+
+            .methods { display: grid; gap: 10px; }
+
+            .method {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                min-height: 62px;
+                padding: 12px 14px;
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                cursor: pointer;
+                transition: border-color .15s, background .15s;
+            }
+
+            .method:has(input:checked) {
+                border-color: var(--purple);
+                background: #f8f7ff;
+            }
+
+            .method input {
+                width: 16px;
+                height: 16px;
+                accent-color: var(--purple);
+                margin: 0;
+            }
+
+            .method-icon {
+                display: grid;
+                place-items: center;
+                width: 36px;
+                height: 36px;
+                border: 1px solid var(--line);
+                border-radius: 9px;
+                color: #344057;
+                font-size: 13px;
+                font-weight: 750;
+                background: #fff;
+            }
+
+            .method-info { flex: 1; }
+            .method-name { font-size: 13px; font-weight: 700; }
+            .method-desc { margin-top: 4px; color: var(--muted); font-size: 11px; }
+            .brands { color: #68748a; font-size: 10px; font-weight: 700; }
+
+            .details {
+                display: none;
+                padding-top: 20px;
+            }
+
+            .details.visible { display: block; }
+
+            .field { display: grid; gap: 7px; margin-bottom: 13px; }
+            .field label { color: #59647a; font-size: 11px; font-weight: 650; }
+
+            .field input {
+                width: 100%;
+                height: 42px;
+                padding: 0 12px;
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                outline: none;
+                color: #202842;
+                font: inherit;
+                font-size: 13px;
+            }
+
+            .field input:focus { border-color: var(--purple); }
+
+            .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+            .wallet-note {
+                padding: 13px;
+                border-radius: 8px;
+                background: #f7f6ff;
+                color: #59647a;
+                font-size: 12px;
+                line-height: 1.5;
+            }
+
+            .pay-button {
+                width: 100%;
+                min-height: 46px;
+                margin-top: 18px;
+                border: 0;
+                border-radius: 9px;
+                color: white;
+                background: var(--purple);
+                font: inherit;
+                font-size: 13px;
+                font-weight: 700;
+                cursor: pointer;
+            }
+
+            .pay-button:hover { background: #5847d4; }
+
+            .secure {
+                margin: 14px 0 0;
+                text-align: center;
+                color: var(--muted);
+                font-size: 11px;
+            }
+
+            @media (max-width: 480px) {
+                body { padding: 12px; }
+                .header, form { padding-left: 19px; padding-right: 19px; }
+                .order { padding-left: 19px; padding-right: 19px; }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="checkout">
+            <header class="header">
+                <div class="brand">
+                    <span class="logo">M</span> mallymart
+                </div>
+                <h1>Choose how to pay</h1>
+                <p>Select a payment method to complete your order.</p>
+            </header>
+
+            <div class="order" aria-label="Order total">
+                <span>Order total</span>
+                <strong>ksh1,240.00</strong>
+            </div>
+
+            <form id="payment-form">
+                <h2 class="section-title">Payment method</h2>
+                <div class="methods">
+
+                    <label class="method">
+                        <input 
+                            type="radio" 
+                            name="payment-method" 
+                            value="card" checked>
+                        <span class="method-icon">▣</span>
+                        <span class="method-info">
+                            <span class="method-name">Credit or debit card</span>
+                            <span class="method-desc">Pay securely with your bank card</span>
+                        </span>
+                        <span class="brands">VISA · MC</span>
+                    </label>
+
+                    <label class="method">
+                        <input 
+                            type="radio" 
+                            name="payment-method" 
+                            value="paypal">
+                        <span class="method-icon">P</span>
+                        <span class="method-info">
+                            <span class="method-name">PayPal</span>
+                            <span class="method-desc">Pay with your PayPal account</span>
+                        </span>
+                    </label>
+
+                    <label class="method">
+                        <input 
+                            type="radio" 
+                            name="payment-method" 
+                            value="mpesa">
+                        <span class="method-icon">M</span>
+                        <span class="method-info">
+                            <span class="method-name">M-Pesa</span>
+                            <span class="method-desc">Pay using your mobile money account</span>
+                        </span>
+                    </label>
+                </div>
+
+                <section class="details visible" id="card-details" aria-label="Card details">
+                    <div class="field">
+                        <label for="card-name">Name on card</label>
+                        <input 
+                            id="card-name" 
+                            name="card-name" 
+                            autocomplete="cc-name" 
+                            placeholder="Name as shown on card">
+                    </div>
+                    <div class="field">
+                        <label for="card-number">Card number</label>
+                        <input 
+                            id="card-number" 
+                            name="card-number" 
+                            inputmode="numeric" 
+                            autocomplete="cc-number" 
+                            placeholder="1234 5678 9012 3456">
+                    </div>
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="expiry">Expiry date</label>
+                            <input 
+                                id="expiry" 
+                                name="expiry" 
+                                autocomplete="cc-exp" 
+                                placeholder="MM / YY">
+                        </div>
+                        <div class="field">
+                            <label for="security-code">Security code</label>
+                            <input 
+                                id="security-code" 
+                                name="security-code" 
+                                inputmode="numeric" 
+                                autocomplete="cc-csc" 
+                                placeholder="CVC">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="details" id="paypal-details" aria-label="PayPal payment">
+                    <p class="wallet-note">Continue to PayPal to sign in and approve your payment.</p>
+                </section>
+
+                <section class="details" id="mpesa-details" aria-label="M-Pesa payment">
+                    <div class="field">
+                        <label for="phone-number">M-Pesa phone number</label>
+                        <input 
+                            id="phone-number" 
+                            name="phone-number" 
+                            type="tel" 
+                            autocomplete="tel" 
+                            placeholder="+254 7XX XXX XXX">
+                    </div>
+                    <p class="hint">You'll receive a payment prompt on your phone.</p>
+                </section>
+
+                <button class="pay-button" id="pay-button" type="submit">Pay ksh1,240.00</button>
+                <p class="secure">Payments are securely processed. Your card details are protected.</p>
+            </form>
+        </main>
+
+        <script>
+            const radios = document.querySelectorAll('input[name="payment-method"]');
+            const sections = {
+                card: document.getElementById('card-details'),
+                paypal: document.getElementById('paypal-details'),
+                mpesa: document.getElementById('mpesa-details')
+            };
+            const payButton = document.getElementById('pay-button');
+
+            function updatePaymentMethod(method) {
+                Object.entries(sections).forEach(([name, section]) => {
+                section.classList.toggle('visible', name === method);
+                });
+
+                payButton.textContent = method === 'paypal'
+                ? 'Continue to PayPal'
+                : method === 'mpesa'
+                    ? 'Pay with M-Pesa'
+                    : 'Pay ksh1,240.00';
+            }
+
+            radios.forEach((radio) => {
+                radio.addEventListener('change', () => updatePaymentMethod(radio.value));
+            });
+
+            document.getElementById('payment-form').addEventListener('submit', (event) => {
+                event.preventDefault();
+                alert('Connect a payment provider to process this payment.');
+            });
+        </script>
+    </body>
+</html>

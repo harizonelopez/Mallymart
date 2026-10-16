@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Learn about Mallymart and our approach to making everyday shopping simple.">
+        <title>About Mallymart</title>
+        <style>
+            :root{--green:#315b43;--ink:#202820;--muted:#687168;--cream:#f7f7f1;--line:#e4e8e1}
+            *{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.65 Arial,Helvetica,sans-serif}a{color:inherit}
+            header{height:76px;padding:0 max(6vw,24px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+            .logo{color:var(--green);font-size:1.55rem;font-weight:800;letter-spacing:-.06em;text-decoration:none}nav{display:flex;gap:28px;align-items:center}nav a{text-decoration:none;font-size:.94rem}nav a:hover,nav [aria-current=page]{color:var(--green)}
+            .hero{text-align:center;background:var(--cream);padding:88px 24px 82px}.label{text-transform:uppercase;letter-spacing:.16em;color:var(--green);font-size:.75rem;font-weight:bold}h1{font-size:clamp(2.7rem,7vw,5rem);letter-spacing:-.065em;line-height:1.04;max-width:780px;margin:15px auto 18px}.hero p{max-width:620px;color:var(--muted);font-size:1.1rem;margin:auto}
+            .story{max-width:1100px;margin:auto;padding:82px 28px;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.art{height:350px;border-radius:22px;background:#edf3e9;display:grid;place-items:center;position:relative;overflow:hidden}.art:before{content:"";position:absolute;width:210px;height:210px;border-radius:50%;background:#d5e2cb;right:30px;top:26px}.basket{z-index:1;position:relative;width:190px;height:135px;border-radius:10px 10px 35px 35px;background:#b98758;box-shadow:0 20px 40px #263b2a22}.basket:before{content:"";position:absolute;width:100px;height:76px;border:11px solid #8a6446;border-bottom:0;border-radius:60px 60px 0 0;left:34px;top:-61px}.basket:after{content:"✿";position:absolute;color:#f5e9c8;font-size:55px;left:65px;top:25px}h2{font-size:clamp(1.9rem,3vw,2.65rem);letter-spacing:-.045em;line-height:1.15;margin:10px 0 18px}.story p,.value p{color:var(--muted)}
+            .values{background:var(--cream);text-align:center;padding:72px 24px 82px}.values h2{margin-bottom:38px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1020px;margin:auto;text-align:left}.card{padding:26px;border:1px solid var(--line);border-radius:15px;background:white}.icon{width:42px;height:42px;border-radius:12px;background:#edf3e9;color:var(--green);display:grid;place-items:center;font-size:1.25rem}.card h3{margin:16px 0 5px}.card p{color:var(--muted);margin:0;font-size:.94rem}.cta{text-align:center;padding:70px 24px}.cta p{color:var(--muted);margin:0 0 23px}.button{display:inline-block;background:var(--green);color:#fff;text-decoration:none;font-weight:bold;padding:12px 23px;border-radius:99px}.button:hover{background:#244632}footer{border-top:1px solid var(--line);padding:22px 6vw;color:var(--muted);font-size:.88rem;display:flex;justify-content:space-between}
+            @media(max-width:700px){header{height:66px;padding:0 5vw}nav{gap:14px}nav a:not([aria-current=page]){display:none}.hero{padding:65px 22px}.story{grid-template-columns:1fr;gap:34px;padding:55px 7vw}.art{height:280px}.cards{grid-template-columns:1fr}.values{padding:56px 7vw}footer{flex-direction:column;gap:5px}}
+        </style>
+    </head>
+    <body>
+        <header>
+            <a class="logo" href="index.html">mallymart</a>
+            <nav aria-label="Main navigation">
+                <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="about.html" aria-current="page">About</a><a href="cart.html">Cart</a>
+            </nav>
+        </header>
+        <main>
+            <section class="hero">
+                <span class="label">A little about us</span><h1>Good finds. A happier everyday.</h1><p>Mallymart makes discovering the things you need—and the things you’ll love—a little easier.</p>
+            </section>
+            <section class="story">
+                <div class="art" role="img" aria-label="Illustration of a thoughtfully packed shopping basket">
+                    <span class="basket"></span>
+                </div>
+                <div>
+                    <span class="label">Our story</span><h2>Thoughtful shopping, made simple.</h2><p>We started Mallymart with a simple idea: shopping should feel straightforward, welcoming, and worth your time. We bring everyday essentials and delightful discoveries together in one place.</p><p>Whether you’re replenishing a favorite or finding something new, we’re glad you’re here. Every visit is a chance to make daily life that little bit better.</p>
+                </div>
+            </section>
+            <section class="values">
+                <span class="label">What matters to us</span><h2>Shopping with a little more heart.</h2>
+                <div class="cards">
+                    <article class="card">
+                        <span class="icon" aria-hidden="true">✦</span><h3>Useful by design</h3><p>Practical finds that earn their place and make everyday routines easier.</p>
+                    </article>
+                    <article class="card">
+                        <span class="icon" aria-hidden="true">♡</span><h3>People first</h3><p>A friendly, helpful experience matters. Shopping with us should feel easy.</p>
+                    </article>
+                    <article class="card">
+                        <span class="icon" aria-hidden="true">☼</span><h3>Always discovering</h3><p>There’s joy in finding something unexpected. Your next great find is close by.</p>
+                    </article>
+                </div>
+            </section>
+            <section class="cta">
+                <h2>Find something you’ll love.</h2><p>Take a look around and see what catches your eye.</p>
+                <a class="button" href="shop.html">Explore the shop</a>
+            </section>
+        </main>
+        <footer>
+            <span>© 2026 Mallymart. All rights reserved.</span><span>Here for the good finds.</span>
+        </footer>
+    </body>
+</html>

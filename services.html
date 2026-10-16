@@ -1,40 +1,113 @@
-<link rel="stylesheet" href="services.css">
-
 <html>
     <head>
         <title>Our Services</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            * { box-sizing: border-box; }
+            body { margin: 0; font-family: Arial, sans-serif; color: #26352c; background: #f5f7f2; }
+            header { padding: 60px 20px; text-align: center; color: white; background: linear-gradient(135deg, #155c3b, #278452); }
+            header .eyebrow { margin: 0 0 12px; text-transform: uppercase; letter-spacing: 2px; font-size: 13px; }
+            h1 { margin: 0 0 14px; font-size: clamp(32px, 5vw, 48px); }
+            header p:last-child { max-width: 620px; margin: auto; line-height: 1.6; color: #e4f2e9; }
+            main { max-width: 1100px; margin: auto; padding: 46px 20px 64px; }
+            .intro { margin-bottom: 30px; text-align: center; }
+            .intro h2 { margin: 0 0 10px; font-size: 28px; }
+            .intro p { margin: 0; color: #647269; }
+            .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+            .service { padding: 25px; background: white; border: 1px solid #e2e9e3; border-radius: 12px; box-shadow: 0 5px 18px rgba(25, 65, 43, .06); }
+            .icon { font-size: 30px; }
+            .service h3 { margin: 14px 0 9px; color: #1c5739; }
+            .service p { margin: 0; color: #5e6b62; line-height: 1.6; }
+            .contact { margin-top: 28px; padding: 26px; border-radius: 12px; text-align: center; background: #e7f2e9; }
+            .contact h2 { margin: 0 0 8px; }
+            .contact p { margin: 0 0 17px; color: #526257; }
+            .contact a { display: inline-block; padding: 11px 20px; border-radius: 6px; background: #1c7046; color: white; text-decoration: none; font-weight: bold; }
+            .contact a:hover { background: #155535; }
+            @media (max-width: 500px) { header { padding: 45px 18px; } main { padding: 34px 16px; } }
+        </style>
     </head>
-
     <body>
-        <div id="main">
-            <div class="customer">
-                <h2>Fast Delivery</h2>
-                <p>• Open Collaboration: Anyone can edit and create pages using open-source, wiki-based software called MediaWiki.
-• Global Scale: As of October 2026, Wikipedia features over 67 million articles spanning 348 active language editions. The English Wikipedia is the largest individual edition, containing more than 7.25 million articles.
-• No Ads or Tracking: The website completely rejects commercial advertising and data tracking to safeguard reader privacy and maintain editorial neutrality.
-• Governing Pillars: Editorial content is tightly governed by standard verification policies that require reliable published sources over per</p>
-                <button>See More</button>
-            </div>
+        <header>
+            <p class="eyebrow">Shopping made simple</p>
+            <h1>Services that make shopping easier</h1>
+            <p>From finding the right products to getting your order at your door, Mallymart is here to make every step straightforward.</p>
+        </header>
+        <main>
+            <section class="intro">
+                <h2>How Mallymart helps</h2>
+                <p>Convenient support throughout your shopping journey.</p>
+            </section>
+            <section class="services" aria-label="Mallymart services">
+                <article class="service">
+                    <div class="icon" aria-hidden="true">
+                        🛍️
+                    </div>
+                    <h3>Easy Online Shopping</h3>
+                    <p>Browse products, compare options, and place your order online whenever it suits you.</p>
+                </article>
 
-            <div class="customer">
-                <h2>Free Delivery</h2>
-                <p>• Open Collaboration: Anyone can edit and create pages using open-source, wiki-based software called MediaWiki.
-• Global Scale: As of October 2026, Wikipedia features over 67 million articles spanning 348 active language editions. The English Wikipedia is the largest individual edition, containing more than 7.25 million articles.
-• No Ads or Tracking: The website completely rejects commercial advertising and data tracking to safeguard reader privacy and maintain editorial neutrality.
-• Governing Pillars: Editorial content is tightly governed by standard verification policies that require reliable published</p>
-                <button>See More</button>
-            </div>
-            
-            <div class="customer">
-                <h2>Customer Support</h2>
-                <p>• Open Collaboration: Anyone can edit and create pages using open-source, wiki-based software called MediaWiki.
-• Global Scale: As of October 2026, Wikipedia features over 67 million articles spanning 348 active language editions. The English Wikipedia is the largest individual edition, containing more than 7.25 million articles.
-• No Ads or Tracking: The website completely rejects commercial advertising and data tracking to safeguard reader privacy and maintain editorial neutrality.
-• Governing Pillars: Editorial content is tightly governed by standard verification policies that require reliable published sources.</p>
-                <button>See More</button>
-            </div>
+                <article class="service">
+                    <div class="icon" aria-hidden="true">
+                        🚚
+                    </div>
+                    <h3>Convenient Delivery</h3>
+                    <p>Have purchases sent to the address you provide. Available delivery options and fees are shown at checkout.</p>
+                </article>
 
-        </div>
+                <article class="service">
+                    <div class="icon" aria-hidden="true">
+                        💳
+                    </div>
+                    <h3>Simple Checkout</h3>
+                    <p>Review your order and choose from the payment methods available during checkout.</p>
+                </article>
+
+                <article class="service">
+                    <div class="icon" aria-hidden="true">
+                        📦
+                    </div>
+                    <h3>Order Updates</h3>
+                    <p>Use the confirmation and delivery information provided after purchase to follow your order.</p>
+                </article>
+
+                <article class="service">
+                    <div class="icon" aria-hidden="true">
+                        🤝
+                    </div>
+                    <h3>Customer Support</h3>
+                    <p>Questions about a product, order, or delivery? Contact our team and include your order details.</p>
+                </article>
+
+                <article class="service">
+                    <div class="icon" aria-hidden="true">
+                        ↩️
+                    </div>
+                    <h3>Returns Assistance</h3>
+                    <p>Get guidance from our support team about an item or return in line with Mallymart's return policy.</p>
+                </article>
+
+                <article class="service">
+                    <div class="icon" aria-hidden="true">
+                        🔍
+                    </div>
+                    <h3>Product Discovery</h3>
+                    <p>Explore available products and details to find options that suit your needs.</p>
+                </article>
+
+                <article class="service">
+                    <div class="icon" aria-hidden="true">
+                        🎁
+                    </div>
+                    <h3>Gift Shopping</h3>
+                    <p>Browse thoughtful finds for special occasions and have your order delivered to your chosen address.</p>
+                </article>
+            </section>
+
+            <section class="contact">
+                <h2>We're here to help</h2>
+                <p>Reach out to the Mallymart team for help with shopping or an existing order.</p>
+                <a href="mailto:support@mallymart.com">Contact Support</a>
+            </section>
+        </main>
     </body>
-    
 </html>
